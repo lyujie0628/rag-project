@@ -1,0 +1,897 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: advanced-chat
+  name: 总的
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/tongyi:0.1.36@73e3e28eca163b96da65ef9eab8633f9e7257213ff0d2f2bed93b28b552d2cda
+    version: null
+kind: app
+version: 0.6.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        attachment_image_file_size_limit: 2
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        file_upload_limit: 50
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        single_chunk_attachment_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        sourceType: start
+        targetType: llm
+      id: 1776187581735-llm
+      selected: false
+      source: '1776187581735'
+      sourceHandle: source
+      target: llm
+      targetHandle: target
+      type: custom
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1776187929021'
+        sourceType: iteration-start
+        targetType: knowledge-retrieval
+      id: 1776187929021start-source-1776188039223-target
+      selected: false
+      source: 1776187929021start
+      sourceHandle: source
+      target: '1776188039223'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1776187929021'
+        sourceType: knowledge-retrieval
+        targetType: llm
+      id: 1776188039223-source-1776188054472-target
+      selected: false
+      source: '1776188039223'
+      sourceHandle: source
+      target: '1776188054472'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1776188240650-source-answer-target
+      selected: false
+      source: '1776188240650'
+      sourceHandle: source
+      target: answer
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: parameter-extractor
+      id: llm-source-1776189223836-target
+      selected: false
+      source: llm
+      sourceHandle: source
+      target: '1776189223836'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: parameter-extractor
+        targetType: iteration
+      id: 1776189223836-source-1776187929021-target
+      selected: false
+      source: '1776189223836'
+      sourceHandle: source
+      target: '1776187929021'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: iteration
+        targetType: if-else
+      id: 1776187929021-source-1776234132215-target
+      selected: false
+      source: '1776187929021'
+      sourceHandle: source
+      target: '1776234132215'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1776234132215-true-1776188240650-target
+      selected: false
+      source: '1776234132215'
+      sourceHandle: 'true'
+      target: '1776188240650'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1776234132215-2f878acc-18a7-485a-829d-bc102ede70cb-1776234180533-target
+      selected: false
+      source: '1776234132215'
+      sourceHandle: 2f878acc-18a7-485a-829d-bc102ede70cb
+      target: '1776234180533'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1776234180533-source-answer-target
+      selected: false
+      source: '1776234180533'
+      sourceHandle: source
+      target: answer
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1776234132215-1a644c35-048b-4c3d-b3b5-b41356247bff-1776239099021-target
+      selected: false
+      source: '1776234132215'
+      sourceHandle: 1a644c35-048b-4c3d-b3b5-b41356247bff
+      target: '1776239099021'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1776239099021-source-answer-target
+      selected: false
+      source: '1776239099021'
+      sourceHandle: source
+      target: answer
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: 用户输入
+        type: start
+        variables: []
+      height: 72
+      id: '1776187581735'
+      position:
+        x: 191.3571040612702
+        y: 214.5911151502077
+      positionAbsolute:
+        x: 191.3571040612702
+        y: 214.5911151502077
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        memory:
+          query_prompt_template: '{{#sys.query#}}
+
+
+            {{#sys.files#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+            size: 10
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: qwen3.6-plus
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: b525be12-e524-4f8c-a8e9-36fcce386794
+          role: system
+          text: "你是一个科研文献检索系统中的“问题拆解与检索策略生成器”。\n\n你的任务：\n将用户问题转换为一组高质量的检索子问题（queries），用于后续全面检索相关文献证据。\n\
+            \n---\n\n你需要完成三件事：\n\n1. 判断问题类型（task_type）：\n只允许三类：\n- direct：单点直答（定义、数值、简单事实）\n\
+            - compare：多个对象之间的比较（如A vs B、哪个更好）\n- describe：其余所有分析类问题（包括“为什么/机理”“是否适合”“如何作用”等）\n\
+            \n---\n\n2. 识别关键对象（objects）：\n- 提取问题中涉及的核心实体（材料、物质、方法等）\n- 如果是比较问题，包含所有对比对象\n\
+            - 如果是作用/机理问题（如A与B发生作用），所有对象都要保留\n- 不要引入用户未提到的新对象\n如果问题包含“有哪些 / 哪几类 / 包括什么\
+            \ / 列出”等表达，优先判定为 direct 类型（枚举型问题），即使问题中包含“影响”“作用”等词，也不应判为describe。\n---\n\
+            \n3. 生成检索子问题（queries）：\n- 必须生成 3~6 条 queries\n- queries 应覆盖不同分析维度，确保信息全面\n\
+            - 不要只改写原问题，要主动扩展\n\n根据问题类型，按以下策略生成：\n\n---\n\n【如果是 direct】\n- 生成 1~2 条最直接的查询\n\
+            - 聚焦定义、数值或单一事实\n\n---\n\n【如果是 compare】\n围绕多个对象，生成对比所需的关键维度，例如：\n- 各对象的核心性质\n\
+            - 各对象在目标场景中的表现\n- 各对象的优缺点或局限性\n\n---\n\n【如果是 describe（最重要）】\n\n如果是“为什么\
+            \ / 机理 / 如何作用”：\n- 材料结构或组成\n- 关键物理/化学性质\n- 相互作用或反应机制\n- 形成结果的条件\n\n如果是“是否适合\
+            \ / 能否应用 / 是否成立”：\n- 材料的核心性能（力学、热学、降解等）\n- 应用场景的关键要求\n- 材料在该场景中的表现\n-\
+            \ 局限性或风险\n\n如果是普通描述：\n- 直接围绕用户关注点扩展相关维度\n\n---\n\n重要规则：\n1. 不要生成无关问题\n\
+            2. 每条 query 都应是一个清晰的检索问题\n3. 不要重复\n4. 不要输出解释，只输出 JSON\n5. 输出必须是完整合法 JSON\n\
+            \n---\n\n输出格式：\n\n{\n  \"task_type\": \"direct 或 compare 或 describe\"\
+            ,\n  \"objects\": [\"对象1\", \"对象2\", \"...\"],\n  \"queries\": [\n   \
+            \ \"子问题1\",\n    \"子问题2\",\n    \"子问题3\"\n    \"...\"\n  ]\n}\n\n---\n\
+            \n用户问题：\n{{#sys.query#}}"
+        selected: false
+        title: 问题拆解
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: llm
+      position:
+        x: 191.3571040612702
+        y: 380.84012432986344
+      positionAbsolute:
+        x: 191.3571040612702
+        y: 380.84012432986344
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        answer: '{{#1776188240650.text#}}
+
+          {{#1776234180533.text#}}{{#1776239099021.text#}}'
+        selected: false
+        title: 直接回复
+        type: answer
+        variables: []
+      height: 140
+      id: answer
+      position:
+        x: 2035.3707490303814
+        y: 594.2673657419292
+      positionAbsolute:
+        x: 2035.3707490303814
+        y: 594.2673657419292
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        error_handle_mode: terminated
+        flatten_output: true
+        height: 172
+        is_parallel: false
+        iterator_input_type: array[string]
+        iterator_selector:
+        - '1776189223836'
+        - queries
+        output_selector:
+        - '1776188039223'
+        - result
+        output_type: array[object]
+        parallel_nums: 10
+        selected: false
+        start_node_id: 1776187929021start
+        title: 逐条检索
+        type: iteration
+        width: 662
+      height: 172
+      id: '1776187929021'
+      position:
+        x: 496.25917232278925
+        y: 574.958978453023
+      positionAbsolute:
+        x: 496.25917232278925
+        y: 574.958978453023
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 662
+      zIndex: 1
+    - data:
+        desc: ''
+        isInIteration: true
+        selected: false
+        title: ''
+        type: iteration-start
+      draggable: false
+      height: 48
+      id: 1776187929021start
+      parentId: '1776187929021'
+      position:
+        x: 24
+        y: 68
+      positionAbsolute:
+        x: 520.2591723227893
+        y: 642.958978453023
+      selectable: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-iteration-start
+      width: 44
+      zIndex: 1002
+    - data:
+        dataset_ids:
+        - tiuNYulFGDDob+9UWuWe92QFV0p0WvOYyOO+24Qye4QybIjxu5YoGJGeqCJRerXT
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1776187929021'
+        multiple_retrieval_config:
+          reranking_enable: true
+          reranking_mode: reranking_model
+          reranking_model:
+            model: qwen3-rerank
+            provider: langgenius/tongyi/tongyi
+          top_k: 4
+        query_attachment_selector: []
+        query_variable_selector:
+        - '1776187929021'
+        - item
+        retrieval_mode: multiple
+        selected: false
+        title: 单条检索
+        type: knowledge-retrieval
+      height: 89
+      id: '1776188039223'
+      parentId: '1776187929021'
+      position:
+        x: 102
+        y: 65
+      positionAbsolute:
+        x: 598.2591723227893
+        y: 639.958978453023
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1776187929021'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: qwen3.6-plus
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: d53bc11d-ecf5-4dfd-b17e-c8f9be729efa
+          role: system
+          text: '你是文献证据整理助手。
+
+            你会收到一个检索问题，以及检索到的文献片段。
+
+            请做：
+
+            只基于检索内容总结
+
+            不要编造
+
+            标明涉及对象和结论方向
+
+            输出：
+
+            【问题】
+
+            {{item}}
+
+            【证据总结】
+
+            xxx
+
+            【涉及对象】
+
+            xxx'
+        - id: ccd4f3f9-10c3-4d51-81b7-cf10cdac2d4e
+          role: user
+          text: '当前子查询：
+
+            {{item}}'
+        selected: false
+        title: 证据整理
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1776188054472'
+      parentId: '1776187929021'
+      position:
+        x: 404
+        y: 65
+      positionAbsolute:
+        x: 900.2591723227893
+        y: 639.958978453023
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 1002
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1776187929021'
+          - output
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: qwen3.6-plus
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: 74df141a-3f40-48fa-b6e0-04af963e6230
+          role: system
+          text: '你是一个文献对比分析助手。
+
+
+            你会收到多个检索结果（来自不同子问题）。
+
+
+            你的任务：
+
+
+            1. 自动识别用户问题中的比较对象（如A和B）
+
+            2. 分别总结每个对象的情况
+
+            3. 按用户问题中的应用场景进行对比
+
+            4. 必须严格基于提供的检索证据回答
+
+            5. 如果某个对象证据不足，必须明确说明“证据不足”
+
+            6. 禁止用其他对象替代缺失对象
+
+
+            ---
+
+
+            输出结构：
+
+
+            【问题】
+
+
+            【关键差异】
+
+
+
+            【对象1总结】
+
+
+            【对象2总结】
+
+
+            【最终结论】
+
+
+            ---
+
+
+            用户问题：
+
+            {{#sys.query#}}
+
+
+            ---
+
+
+            检索证据：
+
+            {{#context#}}
+
+
+            ---
+
+
+            每一个结论必须绑定证据来源。
+
+
+            例如：
+
+            “某材料具有良好的生物降解性（来源：文献1）”
+
+
+            如果无法确定来源，请写：
+
+            “证据不足”
+
+
+            严禁在没有证据的情况下做总结。'
+        - id: c375c8bb-75aa-4aee-b524-32b111fcdffa
+          role: user
+          text: '用户原问题：
+
+            {{#sys.query#}}
+
+
+            以下是针对不同子查询得到的小结论，请据此整合为最终对比答案：
+
+            '
+        selected: false
+        title: 最终比较器
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1776188240650'
+      position:
+        x: 1619.988680901427
+        y: 469.1864443366766
+      positionAbsolute:
+        x: 1619.988680901427
+        y: 469.1864443366766
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        instruction: '从输入文本中提取 JSON 字段，并填入对应参数：
+
+
+          task_type = task_type
+
+          focus = focus
+
+          objects = objects
+
+          queries = queries
+
+
+          输入文本：
+
+          {{#llm.text#}}'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: qwen3.6-plus
+          provider: langgenius/tongyi/tongyi
+        parameters:
+        - description: '是
+
+            '
+          name: queries
+          required: true
+          type: array[string]
+        - description: 是
+          name: task_type
+          required: true
+          type: string
+        - description: 是
+          name: focus
+          required: true
+          type: string
+        - description: 是
+          name: objects
+          required: true
+          type: array[string]
+        query:
+        - llm
+        - text
+        reasoning_mode: prompt
+        selected: false
+        title: 提取检索数组
+        type: parameter-extractor
+        vision:
+          enabled: false
+      height: 87
+      id: '1776189223836'
+      position:
+        x: 191.3571040612702
+        y: 529.881002995013
+      positionAbsolute:
+        x: 191.3571040612702
+        y: 529.881002995013
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: 9b4ccd61-5c95-4a2c-a639-5a18bba08c50
+            value: compare
+            varType: string
+            variable_selector:
+            - '1776189223836'
+            - task_type
+          id: 'true'
+          logical_operator: and
+        - case_id: 2f878acc-18a7-485a-829d-bc102ede70cb
+          conditions:
+          - comparison_operator: contains
+            id: 5f355938-f300-442e-8cfb-48c76d24f95c
+            value: describe
+            varType: string
+            variable_selector:
+            - '1776189223836'
+            - task_type
+          id: 2f878acc-18a7-485a-829d-bc102ede70cb
+          logical_operator: and
+        - case_id: 1a644c35-048b-4c3d-b3b5-b41356247bff
+          conditions:
+          - comparison_operator: contains
+            id: 2d476f38-3441-44df-8fc0-d29f14c137b4
+            value: direct
+            varType: string
+            variable_selector:
+            - '1776189223836'
+            - task_type
+          id: 1a644c35-048b-4c3d-b3b5-b41356247bff
+          logical_operator: and
+        selected: false
+        title: 条件分支
+        type: if-else
+      height: 291
+      id: '1776234132215'
+      position:
+        x: 1228.932143085023
+        y: 516.8238553877218
+      positionAbsolute:
+        x: 1228.932143085023
+        y: 516.8238553877218
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1776187929021'
+          - output
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: qwen3.6-plus
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: 26e2a64b-e18c-4b59-9d2b-0bf2560a3f7b
+          role: system
+          text: '你是一个文献多对象总结助手。
+
+
+            你的任务：
+
+
+            1. 分别总结每个对象的情况
+
+            2. 严格基于提供的检索证据回答
+
+            3. 如果某个对象证据不足，必须说明“证据不足”
+
+            4. 禁止做比较（不要写差异、优劣、结论）
+
+            5. 不要输出“关键差异”或“最终结论”
+
+            6. 在描述多个因素时，优先体现因素之间的作用关系或影响路径，而不仅是简单列举。
+
+            ---
+
+
+            输出结构：
+
+
+            【问题】
+
+
+            【对象1总结】
+
+
+            【对象2总结】
+
+
+            （如有多个对象继续）
+
+
+            【说明】
+
+
+            （这里只能补充说明，不允许比较）
+
+
+            ---
+
+
+            用户问题：
+
+            {{#sys.query#}}
+
+
+            ---
+
+
+            检索证据：
+
+            {{#context#}}'
+        selected: false
+        title: 最终描述器
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1776234180533'
+      position:
+        x: 1619.988680901427
+        y: 619.0777789019529
+      positionAbsolute:
+        x: 1619.988680901427
+        y: 619.0777789019529
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1776187929021'
+          - output
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: qwen3.6-plus
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: d238db13-7ece-4cbc-80bd-9edfe13b3d56
+          role: system
+          text: '你是一个科研文献直答助手。
+
+
+            你的任务是：
+
+            基于前面多轮检索得到的文献证据，先直接回答用户原问题，再补充与该问题密切相关的重要信息。
+
+
+            要求：
+
+            1. 必须严格基于提供的检索证据回答
+
+            2. 不允许使用外部知识
+
+            3. 先回答原问题，再补充扩展信息
+
+            4. 不要写成比较型
+
+            5. 不要写成多对象分别总结
+
+            6. 如果主问题证据不足，要明确写“证据不足”
+
+            7. 补充信息只保留和主问题高度相关的内容，不要发散太远
+
+            8. 不要展示思考过程，不要自我纠正，不要重复输出
+
+            9. 当检索证据存在不确定性、差异或不完全一致时，请避免给出绝对结论，使用更审慎的表达方式。
+
+            10. 在描述多个因素时，优先体现因素之间的作用关系或影响路径，而不仅是简单列举。
+
+
+            输出格式：
+
+
+            【问题】
+
+            {{#sys.query#}}
+
+
+            【直接回答】
+
+            先用一句话直接回答用户原问题。
+
+            如果证据不足，就写：证据不足。
+
+
+            【补充说明】
+
+            结合检索证据，补充 2~4 条与主问题直接相关的信息。
+
+            如果没有足够补充信息，就写：暂无更多可靠补充信息。
+
+
+            【证据来源】
+
+            列出使用到的文献标题、文献片段或证据来源。
+
+
+            前面汇总的检索证据：
+
+            {{#context#}}'
+        selected: false
+        title: 最终直答器
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1776239099021'
+      position:
+        x: 1619.988680901427
+        y: 769.2365515450841
+      positionAbsolute:
+        x: 1619.988680901427
+        y: 769.2365515450841
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    viewport:
+      x: 18.4707879509358
+      y: 6.935241180158073
+      zoom: 0.43527528164806323
+  rag_pipeline_variables: []
